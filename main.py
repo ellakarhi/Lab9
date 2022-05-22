@@ -37,8 +37,24 @@ def box_time():
     return " so far! "
   else:
     return "! "
+
+def rating_sources():
+  rating1 = movie["Ratings"][0]["Value"]
+  rating2 = movie["Ratings"][1]["Value"]
+  rating3 = movie["Ratings"][2]["Value"]
+  if rating1.strip("/10") > "6.0":
+    if rating2.strip("%") > "70":
+      if rating3.strip("/100") > "60":
+        return " This movie was received well by critics and deserves a watch! "
+      else:
+        " This movie is okay so you can watch it if you like but there are better movies to waste your time with. "
+    else:
+      return " This movie is nothing special but you can watch it if you want. "
+  else:
+    return " This movie sucks. Don't waste your time unless you like garbage movies for the funny factor of it. "
+
 def blog():
-  print(movie["Title"] + " is about " + movie["Plot"] + movie["Title"] + " was released " + the_year() +", with a cast of famous actors " + movie["Actors"] +". The writers, " + movie["Writer"] + "and director " + movie["Director"] + " created a " + work_des() + " that has made " + movie["BoxOffice"] + " in the box office" + box_time() + movie["Title"] + pg_level() + movie["Title"] + "is a " + movie["Genre"] + "movie, and has a runtime of " + movie["Runtime"] + ". " + awards() + ". It has been given a rating of " + movie["Ratings"][0]["Value"] + " by " + movie["Ratings"][0]["Source"] + ", " + movie["Ratings"][1]["Source"] + " has giving it a rating of " + movie["Ratings"][1]["Value"] + ", and " + movie["Ratings"][2]["Source"] + " has rated it a " + movie["Ratings"][2]["Value"] + ".")
+  print(movie["Title"] + " is about " + movie["Plot"] + movie["Title"] + " was released " + the_year() +", with a cast of famous actors " + movie["Actors"] +". The writers, " + movie["Writer"] + "and director " + movie["Director"] + " created a " + work_des() + " that has made " + movie["BoxOffice"] + " in the box office" + box_time() + movie["Title"] + pg_level() + movie["Title"] + "is a " + movie["Genre"] + "movie, and has a runtime of " + movie["Runtime"] + ". " + awards() + "." + rating_sources() + "It has been given a rating of " + movie["Ratings"][0]["Value"] + " by " + movie["Ratings"][0]["Source"] + ", " + movie["Ratings"][1]["Source"] + " has giving it a rating of " + movie["Ratings"][1]["Value"] + ", and " + movie["Ratings"][2]["Source"] + " has rated it a " + movie["Ratings"][2]["Value"] + ".")
       
 
 blog()
