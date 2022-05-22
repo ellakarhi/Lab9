@@ -42,7 +42,7 @@ def rating_sources():
   rating1 = movie["Ratings"][0]["Value"]
   rating2 = movie["Ratings"][1]["Value"]
   rating3 = movie["Ratings"][2]["Value"]
-  if rating1.strip("/10") > "6.0":
+  if rating1.strip("/10") > "4.0":
     if rating2.strip("%") > "70":
       if rating3.strip("/100") > "60":
         return " This movie was received well by critics and deserves a watch! "
